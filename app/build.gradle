@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.1"
+
+    defaultConfig {
+        applicationId "com.exp.currencyapp"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+
+            buildConfigField "String", "BASE_URL", "\"https://revolut.duckdns.org/\"";
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://revolut.duckdns.org/\"";
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+//    debug {
+//
+//        buildConfigField "String", "DOCTOR_BASE_URL", "\"https://api.staging.vivy.com\"";
+//        buildConfigField "String", "AUTH_BASE_URL", "\"https://auth.staging.vivy.com\"";
+//        buildConfigField "String", "USER_NAME", "\"androidChallenge@vivy.com\"";
+//        buildConfigField "String", "PASSWORD", "\"88888888\"";
+//        buildConfigField "String", "AUTHROZATION", "\"Basic aXBob25lOmlwaG9uZXdpbGxub3RiZXRoZXJlYW55bW9yZQ==\"";
+//        buildConfigField "String", "GRAND_TYPE", "\"password\"";
+//        buildConfigField "String", "ACCEPT", "\"application/json\"";
+//        buildConfigField "String", "ContentType", "\"application/x-www-form-urlencoded\"";
+//
+//    }
+//
+//    release {
+//
+//        buildConfigField "String", "DOCTOR_BASE_URL", "\"https://api.staging.vivy.com\"";
+//        buildConfigField "String", "AUTH_BASE_URL", "\"https://auth.staging.vivy.com\"";
+//        buildConfigField "String", "BASE_URL", "\"https://auth.staging.vivy.com\"";
+//        buildConfigField "String", "USER_NAME", "\"androidChallenge@vivy.com\"";
+//        buildConfigField "String", "PASSWORD", "\"88888888\"";
+//        buildConfigField "String", "AUTHROZATION", "\"Basic aXBob25lOmlwaG9uZXdpbGxub3RiZXRoZXJlYW55bW9yZQ==\"";
+//        buildConfigField "String", "GRAND_TYPE", "\"password\"";
+//        buildConfigField "String", "ACCEPT", "\"application/json\"";
+//        buildConfigField "String", "ContentType", "\"application/x-www-form-urlencoded\"";
+//        minifyEnabled false
+//        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//
+//    }
+}
+
+
+dependencies {
+    def rxJavaVersion = '2.0.1'
+    def retrofitVersion = '2.3.0'
+    def gradle_version = '3.0.1'
+    def mockitoVersion = '2.11.0'
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    //androidTestImplementation 'org.mockito:mockito-android:2.+'
+    //testImplementation 'org.mockito:mockito-core:2.+'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+
+    //dagger
+    implementation 'com.google.dagger:dagger:2.13'
+    kapt 'com.google.dagger:dagger-compiler:2.13'
+    kapt "com.android.databinding:compiler:$gradle_version"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    //rxjava & rxAndroid
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+
+    //corounites
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.30.1-eap13'
+
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+
+    testImplementation "android.arch.core:core-testing:1.0.0"
+
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
+    androidTestImplementation "androidx.arch.core:core-testing:2.0.0"
+
+
+}
