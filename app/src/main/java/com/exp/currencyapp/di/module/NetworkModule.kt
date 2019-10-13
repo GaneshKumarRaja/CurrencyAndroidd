@@ -26,8 +26,6 @@ class NetworkModule {
             .create(HttpInterface::class.java)
     }
 
-    fun testfunction(){
 
-    }
 
 }
