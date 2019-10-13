@@ -8,10 +8,12 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+import javax.inject.*
 
 @Module
 class NetworkModule {
 
+    //Added Singleton class
     @Provides
     @Singleton
     fun provideRetrofit(): HttpInterface {
@@ -24,11 +26,8 @@ class NetworkModule {
             .create(HttpInterface::class.java)
     }
 
-
-    fun tt(){
+    fun testfunction(){
 
     }
-
-
 
 }
