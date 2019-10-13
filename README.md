@@ -1,6 +1,6 @@
-MVVM Design patten
-Dagger2 for DI
-Kotlin 
-Retrofit and Rxjava for the API call
-RecyclerView 
-Mockito for Unit testing
+MVVM Design patten\n
+Dagger2 for DI\n
+Kotlin \n
+Retrofit and Rxjava for the API call\n
+RecyclerView \n
+Mockito for Unit testing\n
