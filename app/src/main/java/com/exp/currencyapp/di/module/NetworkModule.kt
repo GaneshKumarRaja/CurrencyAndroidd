@@ -25,4 +25,10 @@ class NetworkModule {
     }
 
 
+    fun tt(){
+
+    }
+
+
+
 }
