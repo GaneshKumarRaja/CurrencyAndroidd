@@ -13,7 +13,7 @@ import javax.inject.*
 @Module
 class NetworkModule {
 
-    //Added Singleton class
+
     @Provides
     @Singleton
     fun provideRetrofit(): HttpInterface {
@@ -25,7 +25,6 @@ class NetworkModule {
             .build()
             .create(HttpInterface::class.java)
     }
-
 
 
 }
