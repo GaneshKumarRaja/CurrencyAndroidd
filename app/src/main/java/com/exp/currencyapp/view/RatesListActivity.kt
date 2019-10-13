@@ -81,7 +81,7 @@ class RatesListActivity : BaseActivity(), RatesAdapter.OnRateInteraction {
         super.onResume()
 
         if (!isNetworkConnected()) {
-            Toast.makeText(this, "No Intent Connection", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
         }
 
         CanUpdateRates = true
